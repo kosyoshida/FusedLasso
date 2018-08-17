@@ -165,12 +165,12 @@ if __name__=="__main__":
     w[20:29]=1
     y=np.sign(X.dot(w))
 
-    x=LogitR()
+    model = LogitR()
 
-    x.fit(X,y)
+    model.fit(X,y)
     plt.figure()
-    plt.plot(x.history_l,label="Loss Function")
-    plt.plot(x.history_d,label="Norm of Derivative")
+    plt.plot(model.history_l,label = "Loss Function")
+    plt.plot(model.history_d,label = "Norm of Derivative")
     plt.legend(loc='best')
 
     plt.figure()
