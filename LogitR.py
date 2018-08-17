@@ -21,15 +21,8 @@ class LogitR:
     # p is probability
 
     # initialization
-    def __init__(self,X=None,y=None,w=None,a=None,b=None,u=None,v=None,
-                 lmbd1=0.1,lmbd2=0.1,mu1=1e-2,mu2=1e-2,tol=1e-2,alpha=0.01,maxitr=1e+5):
-        self.X=X
-        self.y=y
-        self.w=w
-        self.a=a
-        self.b=b
-        self.u=u
-        self.v=v
+    def __init__(self, lmbd1=0.1, lmbd2=0.1, mu1=1e-2, mu2=1e-2,
+                 tol=1e-2, alpha=0.01, maxitr=1e+5):
                 
         self.lmbd1=lmbd1
         self.lmbd2=lmbd2
@@ -174,4 +167,4 @@ if __name__=="__main__":
     plt.legend(loc='best')
 
     plt.figure()
-    plt.plot(x.w)
+    plt.plot(model.w)
