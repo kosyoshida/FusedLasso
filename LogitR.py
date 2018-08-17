@@ -107,8 +107,8 @@ class LogitR:
             self.w=self.w-alpha*delt_w
             
             # iteration for a,b primal
-            self.a=self.st(self.w+self.u/self.mu1,self.lmbd1/self.mu1)
-            self.b=self.st(L.dot(self.w)+self.v/self.mu2,self.lmbd2/self.mu2)
+            self.a=self.soft_thresholding(self.w+self.u/self.mu1,self.lmbd1/self.mu1)
+            self.b=self.soft_thresholding(L.dot(self.w)+self.v/self.mu2,self.lmbd2/self.mu2)
             
             # iteration for u,v dual
             dlta=1e-2
@@ -138,7 +138,7 @@ class LogitR:
         f=X_test.dot(self.w)
         return np.sign(f)
         
-    def st(self,x,lmbd):
+    def soft_thresholding(self,x,lmbd):
         ind_p=np.where(x>=lmbd)
         ind_n=np.where(x<=-lmbd)
         
